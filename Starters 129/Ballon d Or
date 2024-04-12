@@ -34,31 +34,40 @@ int main() {
 #include <bits/stdc++.h>
 using namespace std;
 
+#ifndef ONLINE_JUDGE
+#include "algo/debug.h"
+#else
+#define dbg(...) ;
+#define debug(...) ;
+#define crndl ;
+#endif
+
 int main() {
-    int t;
-    cin>>t;
-    while(t--){
-    int n;
-    cin>>n;
-    vector<int>leo(n);
-    for (int i = 0; i < n; ++i)
-    {
-        cin>>leo[i];
-    }
-    int cnt2=0;
-    for (int i = 0; i < n; ++i)
-    {
-        if(leo[i]==2){
-            cnt2++;
+    ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+
+    auto solve = [&] () -> int {
+        int n;
+        cin >> n;
+
+        vector<int> a(n);
+        for (int i = 0; i < n; i++) cin >> a[i];
+
+        int cnt2 = 0;
+        for (int i = 0; i < n; i++) {
+            cnt2 += a[i] == 2;
         }
+
+        return cnt2 % 8 == 0;
+    };
+    
+    int t = 1;
+    cin >> t;
+    
+    for (int tc = 1; tc <= t; tc++) {
+        debug(Testcase, tc);
+        cout << (solve() ? "YES" : "NO") << endl;
+        crndl;
     }
-    if(cnt2%8==0){
-        cout<<"Yes"<<'\n';
-    }
-    else{
-        cout<<"No"<<'\n';
-    }
-   } 
     
     return 0;
 }
