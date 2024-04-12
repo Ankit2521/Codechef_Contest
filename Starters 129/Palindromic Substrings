@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#ifndef ONLINE_JUDGE
+#include "algo/debug.h"
+#else
+#define dbg(...) ;
+#define debug(...) ;
+#define crndl ;
+#endif
+
+int main() {
+    ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+
+    auto solve = [&] () {
+        int n;
+        cin >> n;
+
+        string str;
+        cin >> str;
+
+        vector<int> cnt(2, 0);
+        for (int i = 0; i < n; i++) cnt[str[i] - '0']++;
+
+        if (n == 1) return false;
+        if (cnt[0] == cnt[1]) return false;
+        if (cnt[0] == cnt[1] + 1 || cnt[1] == cnt[0] + 1) return true;
+
+        return n % 2 == 0;
+    };
+    
+    int t = 1;
+    cin >> t;
+    
+    for (int tc = 1; tc <= t; tc++) {
+        debug(Testcase, tc);
+        cout << (solve() ? "Alice" : "Bob") << "\n";
+        crndl;
+    }
+    
+    return 0;
+}
