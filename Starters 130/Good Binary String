@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define fastio ios::sync_with_stdio(0); cin.tie(0);
+#define ll long long
+#define vi vector<int>
+
+int main() {
+    fastio;
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        string s;
+        cin >> s;
+        int m = 0;
+        vi index;
+        char prev = '0';
+        for (int i = 0; i < n; i += 2) {
+            if (s[i] != s[i+1]) {
+                if (s[i] != prev) {
+                    index.push_back(i);
+                    prev = s[i];
+                } else {
+                    index.push_back(i+1);
+                    prev = s[i+1];
+                }
+                m++;
+            } else if (s[i] == s[i+1]) {
+                continue;
+            }
+        }
+        cout << m << endl;
+        for (auto& i : index) {
+            cout << i+1 << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
