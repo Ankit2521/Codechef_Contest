@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+//Code
+void asquare()
+{
+    ll n, k;
+    cin >> n >> k;
+    ll arr[n];
+    ll diff = 0;
+    for(ll i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+        arr[i] %= k;
+    }
+    sort(arr, arr + n);
+    diff = arr[n - 1] - arr[0];
+    for(ll i = 0; i < n - 1; i++)
+    {
+        if((arr[i] - arr[i + 1] + k) < diff)
+        {
+            diff = arr[i] + k - arr[i + 1];
+        }
+    }
+    cout << diff << endl;
+}
+//Main
+int main()
+{
+    Code By Asquare
+    ll t;
+    cin>>t;
+    fl(i,t)
+    {
+        asquare();
+    }
+    return 0;
+}
+//End
