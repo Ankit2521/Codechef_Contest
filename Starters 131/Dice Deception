@@ -1,0 +1,43 @@
+#include <iostream>
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+//Code
+void asquare()
+{
+    ll n,k;
+    cin>>n>>k;
+    vll a(n);
+    cin>>a;
+    sort(a.begin(),a.end());
+    int j=0,sum=0;
+    for(int i=0;i<n;i++)
+    {
+        
+        if(a[i]<=3 && j<k)
+        {
+            sum+=(7-a[i]);
+            j++;
+        }
+        else{
+            sum+=a[i];
+        }
+    }
+    
+    cout<<sum<<"\n";
+}
+//Main
+int main()
+{
+    Code By Asquare
+    ll t;
+    cin>>t;
+    fl(i,t)
+    {
+        asquare();
+    }
+    return 0;
+}
+//End
