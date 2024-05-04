@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while(t--) {
+        int n, m;
+        cin >> n >> m;
+        vector<int> an(n), am(m);
+        for(int i = 0; i < n; i++) {
+            cin >> an[i];
+        }
+        for(int i = 0; i < m; i++) {
+            cin >> am[i];
+        }
+        if(m < 4 || n < 4 || n + m < 11) {
+            cout << -1 << '\n';
+            continue;
+        }
+        sort(an.rbegin(), an.rend());
+        sort(am.rbegin(), am.rend());
+        long long sum = 0;
+        for(int i = 0; i < 4; i++) {
+            sum += an[i];
+            sum += am[i];
+        }
+        int cnt = 0, i = 4, j = 4;
+        while(cnt < 3) {
+            if(i < n && j < m) {
+                if(an[i] > am[j]) {
+                    sum += an[i];
+                    i++;
+                }
+                else {
+                    sum += am[j];
+                    j++;
+                }
+            }
+            else if(i < n) {
+                sum += an[i];
+                i++;
+            }
+            else {
+                sum += am[j];
+                j++;
+            }
+            cnt++;
+        }
+        cout << sum << '\n';
+    }
+}
