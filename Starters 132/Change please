@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int a,b,c;
+	    cin>>a;
+	    if (a%10 ==0)
+	    cout<<100-a<<endl;
+	    else
+	    {
+	     c= 100-a;   
+	     b= c/10;
+	     cout<<b*10<<endl;
+	    }
+	}
+
+}
