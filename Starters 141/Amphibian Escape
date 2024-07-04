@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define fastIO ios::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);cout.precision(numeric_limits<double>::max_digits10);
+#define int long long
+
+void Code(){
+    int n, k, h;
+    cin>>n>>k>>h;
+    int ans=0;
+    for(int a=1;a<=n;a++){
+        if(a>=h){
+            ans+=n;
+            continue;
+        }
+        int req=(h-a)/(k-1);
+        if((h-a)%(k-1)) req++;
+        int mx=a-req;
+        if(mx>=0) ans+=mx;
+    }
+    // O(n)
+    cout<<ans<<'\n';
+    
+}
+
+int32_t main() {
+    fastIO;
+
+    int t=1;
+    cin>>t;
+    while(t--){
+        Code();
+    }
+    return 0;
+}
