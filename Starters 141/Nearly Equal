@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+        int N,M;
+        cin>>N>>M;
+        string A,B;
+        cin>>A>>B;
+        int ans =INT_MAX;
+        for(int i=0;i<=N-M;i++){
+            const string As = A.substr(i,M);
+            int cnt =0;
+            for(int j =0;j<M;j++){
+                if(As[j]!=B[j]){
+                    cnt++;
+                }
+            }
+            ans =min(ans,cnt);
+        }
+        cout<<ans<<'\n';
+    }
+}
